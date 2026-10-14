@@ -1,0 +1,58 @@
+/* Design tokens extracted from the Figma file */
+/* Fonts (Inter, Poppins, Inspiration) come from Google Fonts, see index.html: small compressed files instead of the 600 KB .otf files in public/assets/fonts, which are no longer used. */
+
+:root {
+  /* brand */
+  --color-primary: #57007b;
+  --color-primary-lite: #e7daed;
+  --color-pink: #f76680;
+  --color-blue: #3d63ea;
+  --color-nav-blue: #6675f7;
+  --color-yellow-1: #ffef5e;
+  --color-yellow-2: #f7936f;
+
+  /* gray scale */
+  --gray-900: #1a202c;
+  --gray-800: #2d3748;
+  --gray-700: #4a5568;
+  --gray-600: #718096;
+  --gray-500: #a0aec0;
+  --gray-400: #cbd5e0;
+  --gray-300: #e2e8f0;
+  --gray-50: #fafafa;
+
+  /* surfaces */
+  --bg-white: #ffffff;
+  --bg-light: #f9f9ff;
+  --bg-band: #f7f7fa;
+  --bg-case-1: #f1f2ff;
+  --bg-case-2: #f0fff7;
+  --bg-case-3: #fff4f4;
+  --border-lite: #e7daed;
+
+  /* gradients */
+  --grad-primary: linear-gradient(266deg, #f76680 0%, #57007b 100%);
+  --grad-nav-btn: linear-gradient(251deg, #6675f7 0%, #57007b 100%);
+  --grad-dot: linear-gradient(225deg, #f76680 0%, #57007b 100%);
+  /* one gradient for every button; it is 200% wide so hover can slide it (purple to pink, then back) */
+  --grad-btn: linear-gradient(90deg, #57007b 0%, #f76680 50%, #57007b 100%);
+  --grad-dot-warm: linear-gradient(225deg, #ffef5e 0%, #f7936f 100%);
+  --grad-cta: linear-gradient(257deg, #f1f1f5 0%, #e4ecf7 100%);
+  --grad-icon-tile: linear-gradient(226deg, #67e9f1 0%, #24e795 100%);
+
+  /* shadows */
+  --shadow-nav: 0 4px 40px rgba(0, 0, 0, 0.1);
+  --shadow-btn: 0 4px 49px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.05);
+  --shadow-card-active: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  /* typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-footer: 'Poppins', 'Inter', sans-serif;
+  --font-brand: 'Inspiration', 'Segoe Script', 'Brush Script MT', cursive;
+
+  /* layout */
+  --container: 1230px;
+  --gutter: 24px;
+  --nav-h: 79px;
+}

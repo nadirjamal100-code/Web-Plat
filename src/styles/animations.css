@@ -1,0 +1,53 @@
+/* ===== Scroll + entrance animations =====
+   Reveal classes are added by useScrollEffects.js. The animations use the individual `translate` / `scale`
+   properties, so they never clash with the hover effects (which use `transform`). */
+:root { --ease-out: cubic-bezier(.22, 1, .36, 1); }
+
+/* ---- reveal on scroll ---- */
+.reveal:not(.is-visible) { opacity: 0; }
+.reveal.is-visible { animation-duration: .9s; animation-timing-function: var(--ease-out); animation-fill-mode: backwards; animation-delay: var(--reveal-delay, 0s); }
+.rv-up.is-visible { animation-name: rv-up; }
+.rv-left.is-visible { animation-name: rv-left; }
+.rv-right.is-visible { animation-name: rv-right; }
+.rv-zoom.is-visible { animation-name: rv-zoom; animation-duration: 1s; }
+
+@keyframes rv-up { from { opacity: 0; translate: 0 48px; } to { opacity: 1; translate: 0 0; } }
+@keyframes rv-left { from { opacity: 0; translate: -72px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes rv-right { from { opacity: 0; translate: 72px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes rv-zoom { from { opacity: 0; scale: .86; translate: 0 32px; } to { opacity: 1; scale: 1; translate: 0 0; } }
+
+/* sideways slides become simple rises on tablet and phone, so nothing pokes out of the screen */
+@media (max-width: 1023px) {
+  .rv-left.is-visible, .rv-right.is-visible { animation-name: rv-up; }
+}
+
+/* ---- section headings: the gradient bar draws itself in ---- */
+.section-heading__line { transform-origin: left center; }
+.section-heading--center .section-heading__line { transform-origin: center; }
+.reveal.is-visible .section-heading__line { animation: rv-line .9s var(--ease-out) .25s backwards; }
+@keyframes rv-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---- page-load entrance for both banners ---- */
+.hero h1 { animation: rv-up 1s var(--ease-out) .5s backwards; }
+.hero__lead { animation: rv-up 1s var(--ease-out) .2s backwards; }
+.hero__text > .btn { animation: rv-up 1s var(--ease-out) .35s backwards; }
+.hero__media { animation: rv-zoom 1.2s var(--ease-out) .2s backwards; }
+
+.ap-crumbs { animation: rv-up .8s var(--ease-out) backwards; }
+.ap-hero__text > :nth-child(1) { animation: rv-up .9s var(--ease-out) .05s backwards; }
+.ap-hero__text > :nth-child(2) { animation: rv-up .9s var(--ease-out) .17s backwards; }
+.ap-hero__text > :nth-child(3) { animation: rv-up .9s var(--ease-out) .29s backwards; }
+.ap-hero__text > :nth-child(4) { animation: rv-up .9s var(--ease-out) .41s backwards; }
+.ap-hero__media { animation: rv-zoom 1.2s var(--ease-out) .2s backwards; }
+
+/* ---- scroll progress bar ---- */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100; pointer-events: none; }
+.scroll-progress__bar { display: block; height: 100%; background: linear-gradient(90deg, #f76680, #57007b); transform: scaleX(0); transform-origin: left center; border-radius: 0 3px 3px 0; box-shadow: 0 0 10px rgba(247, 102, 128, 0.5); }
+
+/* ---- reduced motion: everything is simply shown ---- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal:not(.is-visible) { opacity: 1; }
+  .reveal.is-visible, .reveal.is-visible .section-heading__line,
+  .hero h1, .hero__lead, .hero__text > .btn, .hero__media,
+  .ap-crumbs, .ap-hero__text > *, .ap-hero__media { animation: none; }
+}

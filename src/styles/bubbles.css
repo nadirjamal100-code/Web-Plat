@@ -1,0 +1,44 @@
+/* ===== Floating bubbles (site-wide, decorative) ===== */
+.bubbles {
+  position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden;
+}
+.bubble {
+  --peak: .55; /* highest opacity this bubble reaches */
+  position: absolute; bottom: calc(var(--size) * -1.5); width: var(--size); height: var(--size); border-radius: 50%;
+  opacity: 0; will-change: transform, opacity;
+  /* glassy look: bright highlight, soft tint, thin rim */
+  background:
+    radial-gradient(circle at 30% 28%, rgba(255, 255, 255, .9) 0 9%, rgba(255, 255, 255, 0) 32%),
+    radial-gradient(circle at 70% 78%, var(--tint) 0%, rgba(255, 255, 255, 0) 62%),
+    var(--fill);
+  border: 1px solid var(--rim);
+  box-shadow: inset 0 0 calc(var(--size) * .3) var(--tint), 0 0 calc(var(--size) * .4) var(--glow);
+  animation: bubble-rise var(--dur) linear var(--delay) infinite;
+}
+.bubble--p { --tint: rgba(87, 0, 123, .3); --fill: rgba(87, 0, 123, .07); --rim: rgba(87, 0, 123, .35); --glow: rgba(87, 0, 123, .12); }
+.bubble--k { --tint: rgba(247, 102, 128, .38); --fill: rgba(247, 102, 128, .08); --rim: rgba(247, 102, 128, .42); --glow: rgba(247, 102, 128, .15); }
+.bubble--b { --tint: rgba(77, 150, 236, .34); --fill: rgba(103, 224, 247, .1); --rim: rgba(77, 150, 236, .4); --glow: rgba(77, 150, 236, .14); }
+
+/* very small: crisp and a little brighter so they stay visible */
+.bubble--xs { --peak: .7; box-shadow: none; }
+/* very large: barely-there, so they never fight with the content */
+.bubble--xl { --peak: .22; border-width: 2px; box-shadow: inset 0 0 calc(var(--size) * .2) var(--tint); }
+
+@keyframes bubble-rise {
+  0%   { transform: translate3d(0, 0, 0) scale(.6); opacity: 0; }
+  8%   { opacity: var(--peak); }
+  25%  { transform: translate3d(var(--sway), -28vh, 0) scale(.9); }
+  50%  { transform: translate3d(calc(var(--sway) * -.6), -58vh, 0) scale(1); }
+  75%  { transform: translate3d(calc(var(--sway) * .8), -88vh, 0) scale(1.05); }
+  92%  { opacity: var(--peak); }
+  100% { transform: translate3d(0, -118vh, 0) scale(1.1); opacity: 0; }
+}
+
+/* Keep phones light: fewer bubbles, and smaller giants */
+@media (max-width: 767px) {
+  .bubble--extra { display: none; }
+  .bubble--xl { --size: 30px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bubbles { display: none; }
+}

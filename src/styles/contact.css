@@ -1,0 +1,30 @@
+/* ===== Contact page (the form reuses the .hr-form styles from hire.css) ===== */
+/* the footer now shows phone and email on separate lines */
+.footer__contact a { display: block; width: fit-content; }
+.footer__contact a + a { margin-top: 6px; }
+
+.ct-cards { padding: 0 0 20px; margin-top: -6px; }
+.ct-cards__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.ct-card { display: flex; flex-direction: column; gap: 10px; padding: 28px 24px; border-radius: 20px; background: #fff; border: 1px solid #eadcf0; box-shadow: 0 14px 34px rgba(87, 0, 123, .07); transition: transform .3s ease, box-shadow .3s ease; }
+.ct-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(87, 0, 123, .14); }
+.ct-card h3 { font-size: 20px; margin-top: 4px; }
+.ct-card address { display: grid; gap: 2px; font-style: normal; font-size: 15px; line-height: 24px; opacity: .8; flex: 1; overflow-wrap: anywhere; }
+.ct-card__link { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font-weight: 600; margin-top: 6px; }
+.ct-card__link img { transition: transform .25s ease; }
+.ct-card__link:hover img { transform: translateX(5px); }
+
+.ct-form { padding-top: 70px; }
+.ct-info { display: grid; gap: 16px; margin: 6px 0 0; }
+.ct-info dt { font-size: 12.500px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--color-primary); margin-bottom: 2px; }
+.ct-info dd { margin: 0; font-size: 16px; font-weight: 500; }
+.ct-info a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+.ct-next__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 1023px) {
+  .ct-cards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ct-form { padding-top: 50px; }
+  .ct-next__grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 599px) {
+  .ct-cards__grid { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,0 +1,20 @@
+/* Floating scroll-to-top button */
+.scroll-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 60;
+  width: 48px; height: 48px; border-radius: 50%; border: 0; padding: 0;
+  display: grid; place-items: center; color: #fff; cursor: pointer;
+  background: var(--grad-btn); background-size: 200% 100%; background-position: 0 0;
+  box-shadow: 0 8px 24px rgba(87, 0, 123, .35);
+  opacity: 0; visibility: hidden; transform: translateY(16px) scale(.9);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s, background-position .5s ease, box-shadow .3s ease;
+}
+.scroll-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.scroll-top:hover { background-position: 100% 0; box-shadow: 0 12px 30px rgba(247, 102, 128, .45); transform: translateY(-3px); }
+.scroll-top:focus-visible { outline: 3px solid var(--color-pink); outline-offset: 3px; }
+.scroll-top:active { transform: scale(.94); }
+@media (max-width: 767px) {
+  .scroll-top { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top { transition: opacity .2s ease, visibility .2s; }
+}
