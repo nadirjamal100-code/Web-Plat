@@ -3,7 +3,9 @@
 .cs-page dd, .cs-page dt, .csd-page dd, .csd-page dt { margin: 0; padding: 0; }
 .cs-page dl, .csd-page dl { margin-block: 0; }
 
-.cs-impact { padding: 0 0 20px; margin-top: -10px; }
+/* keep the hero actions clear of the stat cards */
+.cs-page .ap-hero { padding-bottom: 56px; }
+.cs-impact { position: relative; z-index: 0; padding: 0 0 20px; margin-top: 0; }
 .cs-impact__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .cs-impact__item { flex-direction: column; align-items: flex-start; gap: 6px; padding: 24px; }
 .cs-impact__item strong { min-width: 0; font-size: 40px; }
@@ -111,6 +113,7 @@
 }
 
 @media (max-width: 1023px) {
+  .cs-page .ap-hero { padding-bottom: 40px; }
   .cs-featured, .cs-all, .cs-quote { padding: 60px 0; }
   .cs-impact__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cs-feature { grid-template-columns: minmax(0, 1fr); }

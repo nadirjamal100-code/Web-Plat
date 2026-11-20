@@ -2,11 +2,41 @@ import { useState } from 'react'
 import SectionHeading from './SectionHeading.jsx'
 
 const people = [
-  { name: 'Romeena De Silva', company: 'Janet Cosmetics', photo: 'person-1' },
-  { name: 'Romeena De Silva', company: 'Janet Cosmetics', photo: 'person-2' },
-  { name: 'Imran Khan', company: 'Software Engineer', photo: 'person-3' },
-  { name: 'Romeena De Silva', company: 'Janet Cosmetics', photo: 'person-4' },
-  { name: 'Romeena De Silva', company: 'Janet Cosmetics', photo: 'person-5' },
+  {
+    name: 'Romeena De Silva',
+    company: 'Janet Cosmetics',
+    photo: 'person-1',
+    review:
+      'They rebuilt our website from the ground up and the results spoke for themselves. Our store loads faster, looks far better and online enquiries went up within weeks of launch.',
+  },
+  {
+    name: 'Romeena De Silva',
+    company: 'Janet Cosmetics',
+    photo: 'person-2',
+    review:
+      'Communication was clear from day one. The team listened to what we needed, delivered on time and kept us updated at every stage of the project.',
+  },
+  {
+    name: 'Imran Khan',
+    company: 'Software Engineer',
+    photo: 'person-3',
+    review:
+      'Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to someone else.',
+  },
+  {
+    name: 'Romeena De Silva',
+    company: 'Janet Cosmetics',
+    photo: 'person-4',
+    review:
+      'Their digital marketing work brought us real customers, not just clicks. We finally have a clear view of what is working and where to invest next.',
+  },
+  {
+    name: 'Romeena De Silva',
+    company: 'Janet Cosmetics',
+    photo: 'person-5',
+    review:
+      'A professional, reliable team who care about quality. Even after launch they have stayed responsive and helped us whenever we needed changes.',
+  },
 ]
 
 const comma =
@@ -40,10 +70,8 @@ export default function Testimonials() {
         </svg>
         <div className="feedback__quote">
           <SectionHeading id="feedback-title" lines={['Why customers love', 'working with us']} center />
-          <blockquote>
-            Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing
-            agencies. One of the best agencies I’ve came across so far. Wouldn’t be hesitated to introduce their work to
-            someone else.
+          <blockquote key={active} aria-live="polite">
+            {people[active].review}
           </blockquote>
         </div>
         <ul className="feedback__people">
