@@ -39,6 +39,7 @@ export default function Footer() {
       </div>
       <div className="footer__bottom">
         <p>© 2026 Copyright by Hi Developers. All rights reserved.</p>
+        <p className="footer__credit">Website Developed By <strong>Nadir Jamal</strong></p>
       </div>
     </footer>
   )

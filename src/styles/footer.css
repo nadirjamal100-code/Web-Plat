@@ -20,3 +20,5 @@
 .footer__social img { width: 14px; height: 14px; object-fit: contain; }
 .footer__bottom { border-top: 1px solid var(--gray-400); padding: 34px var(--gutter) 32px; text-align: center; }
 .footer__bottom p { font-size: 14px; line-height: 20px; letter-spacing: -.5px; color: var(--gray-700); }
+.footer__credit { margin-top: 6px; }
+.footer__credit strong { font-weight: 600; color: var(--color-primary); }
